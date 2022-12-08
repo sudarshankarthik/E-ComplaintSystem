@@ -1,0 +1,25 @@
+{
+  "name": "e-complaintsystem",
+  "version": "1.0.0",
+  "description": "An E Governance Project which allows citizens to complaint directly through  our website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudarshankarthik/E-ComplaintSystem.git"
+  },
+  "author": "Sudarshan Karthi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudarshankarthik/E-ComplaintSystem/issues"
+  },
+  "homepage": "https://github.com/sudarshankarthik/E-ComplaintSystem#readme",
+  "keywords": [
+    "E",
+    "complaint",
+    "System",
+    "PHP"
+  ]
+}

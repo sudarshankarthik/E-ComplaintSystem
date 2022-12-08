@@ -9,6 +9,6 @@
 </head>
 <body>
     <?php include './src/includes/header.php'; ?>
-    <script src="./bootstrap-5.2.3-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.js"></script>
 </body>
 </html>
