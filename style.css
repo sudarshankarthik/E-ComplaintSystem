@@ -6,10 +6,23 @@
     font-family: 'Inter', sans-serif;
 }
 
+body {
+    position: relative;
+}
+
 nav {
     padding: 8px;
     box-shadow: 0px 4px 12px 2px rgba(0,0,0,0.75);
     background-color: #fbfbfb;
+    position: sticky; 
+    top: 0; 
+    width: 100%; 
+    transition: top 0.3s; 
+    z-index: 10;
+}
+
+nav.hidden {
+    transform: translateY(-100%);
 }
 nav, .links {
     display: flex;
@@ -35,23 +48,219 @@ nav .links a:hover {
     color: #07689f;
 }
 
-.hero {
+.nav-btn {
+    font-size: 1.5rem;
+    background-color: #07689f;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 26px;
+    margin-left: 20px;
+    transition: all .35s;
+    cursor: pointer;
+}
+
+.nav-btn span {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.nav-btn::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #fd5e42;
+    transition: all .35s;
+}
+
+.nav-btn:hover {
+    background-color: #fd5e42
+}
+
+a:hover:after{
+    width: 100%;
+}
+
+.login {
+    width: 50vw;
+    height: 70vh;
+    position: fixed;
+    margin: auto;   
+    visibility: visible;
+    display: block;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    margin: -35vh -25vw;
+    box-shadow: 0px 0px 20000px 20000px rgba(0,0,0,0.56);
+    background-color: white;
+}
+
+.login-container {
+
+}
+
+.hero, .track-complaint {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding: 40px;
+    padding: 80px;
     background-color: #efefef;
     clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 93%);
 }
 
-.hero .left {
-    width: 50%;
+.text-container {
     line-height: 1.7;
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
-.hero .right {
+.left {
+    width: 50%;
+}
+
+.right {
     margin-right: 70px;
 }
+
+.complaint {
+    padding: 80px;
+}
+
+h2 {
+    margin-bottom: 80px;
+}
+
+.complaint-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px 30px;    
+    padding: 10px;
+    
+}
+
+.complaint-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 600px
+    
+}
+
+.complaint-img {
+    width: 60%;
+    margin: 150px;
+}
+
+.complaint-btn {
+    font-size: 1.7rem;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.25s;
+
+}
+
+.complaint-btn:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em #07689f;
+    transform: translateY(-0.25em);
+    background-color: #07689f;
+    color: white;
+    border: 1px solid #07689f;
+}
+
+.bank {
+    background: url(./res/img/bank.jpg);
+    background-size: cover;
+}
+
+.post {
+    background: url(./res/img/post.jpg);
+    background-size: cover;
+}
+
+.education {
+    background: url(./res/img/school.jpg);
+    background-size: cover;
+}
+
+.transport {
+    background: url(./res/img/transport.png);
+    background-size: cover;
+}
+
+.track-form {
+    width: 500px;
+    font-size: 1.6rem;
+    height: fit-content;
+    padding: 8px;
+    margin: 50px 0;
+}   
+
+.track-complaint [type=submit] {
+    width: fit-content;
+    background-color: #fd5e42;
+    border: none;
+    border-radius: 100px;
+    padding: 12px;
+    margin-left: 25px;
+    color: white;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.25s;
+}
+
+.track-complaint [type=submit]:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em #07689f;
+    transform: translateY(-0.25em);
+    background-color: #07689f;
+    color: white;
+    border: 1px solid #07689f;
+}
+
+.about {
+    padding: 80px;
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('./res/img/customer-support.jpg');
+    background-position:center top;
+    background-size: cover;
+    color: white;
+}
+
+.footer {
+    display: flex;
+    background-color: rgb(25, 25, 25);
+    padding: 50px;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.footer-container {
+    display: flex;
+}
+
+.footer-icons {
+    width: 40px;
+    margin-left: 20px;
+}
+
+.footer-text {
+    margin-top: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
