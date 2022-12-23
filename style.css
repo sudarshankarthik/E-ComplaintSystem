@@ -10,6 +10,17 @@ body {
     position: relative;
 }
 
+img {
+    transition-duration: 500ms;
+    transition-delay: 200ms;
+    
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 39px -9px rgba(0,0,0,0.75);
+}
+
 nav {
     padding: 8px;
     box-shadow: 0px 4px 12px 2px rgba(0,0,0,0.75);
@@ -86,8 +97,8 @@ a:hover:after{
 }
 
 .login {
-    width: 50vw;
-    height: 70vh;
+    width: 70vw;
+    height: 80vh;
     position: fixed;
     margin: auto;   
     visibility: visible;
@@ -95,9 +106,49 @@ a:hover:after{
     z-index: 10;
     top: 50%;
     left: 50%;
-    margin: -35vh -25vw;
+    margin: -40vh -35vw;
     box-shadow: 0px 0px 20000px 20000px rgba(0,0,0,0.56);
     background-color: white;
+}
+
+.close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    height: 25px;
+    width: 25px;
+    padding: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.close:hover {
+    background-color: #fd5e42;
+}
+
+.login{
+    background: linear-gradient(to right, rgba(255,255,255,100),
+    rgba(255,255,255,1)), url(./res/img/Login_Page_Image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.close button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .login-container {
