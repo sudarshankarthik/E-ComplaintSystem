@@ -1,14 +1,41 @@
+<?php
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "myDB";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password);
+
+    // Check connection
+    if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+    }
+
+    echo "Connected successfully";
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+            if (isset($_POST['Login'])) {
+                
+                
+            }
+        } else {
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>E-Complaint</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav id="navbar">
         <div class="logo">
-            <img src="./res/icon/E-Complaint.png" alt="E Complaint Portal" width="200">
+            <img src="../res/icon/E-Complaint.png" alt="E Complaint Portal" width="200">
         </div>
         <div class="links">
             <a href="#">Home</a>
@@ -19,38 +46,6 @@
         </div>
     </nav>
 
-    <div class="login" id="login">
-        <div class="close">
-            <button onclick="showLogin()"><img src="./res/icon/close.png" alt="close" width="20px" height="20px"></button>
-        </div>
-        <div class="login-container">
-            <div class="right">
-                <div class="head">
-                    <h1>Welcome Back</h1>
-                    <p>Login to E-Complaint Portal and become a change </p>
-                </div>
-                <div class="form">
-                    <form action="./src/loggedin.php" method="POST">
-                        <div class="user input-container">
-                            <img src="./res/icon/user.png" alt="User" srcset="" width="40px">
-                            <input type="text" placeholder="User Name" name="uname" id="uname" class="signin-input" required="true"/>
-                        </div>
-                        <div class="password input-container">
-                            <img src="./res/icon/padlock.png" alt="User" srcset="" width="40px">
-                            <input type="password" placeholder ="Pasword"  name="pssd" id="pssd" class="signin-input" required="true"/>
-                        </div>
-                        <div class="input-container">
-                            <input type="submit" value="Login" id="Login" class="login-submit" name="Login"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="foot">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="hero">
         <div class="left text-container">
             <h2>What is E Complaint Portal</h2>
@@ -60,7 +55,7 @@
         </div>
 
         <div class="right">
-            <img src="res\img\Complaints.png" alt="Complaint" width="800px"/>
+            <img src="../res/img/Complaints.png" alt="Complaint" width="800px"/>
         </div>
     </div>
 
@@ -105,7 +100,7 @@
             </form>
         </div>
         <div class="right">
-            <img src="res\icon\tracking.png" alt="tracking" width="800px"/>
+            <img src="../res/icon/tracking.png" alt="tracking" width="800px"/>
         </div>
     </div>
 
@@ -120,10 +115,10 @@
 
     <div class="footer">
         <div class="link-container">
-            <a href="https://www.instagram.com/sudarshan_karthiktk/"><img src="./res/icon/instagramc.png" alt="Instagram" class="footer-icons"/></a>
-            <a href="https://github.com/sudarshankarthik"><img src="./res/icon/githubc.png" alt="Github" class="footer-icons"/></a>
-            <a href="https://twitter.com/Sudarshan_Karth"><img src="./res/icon/twitterc.png" alt="Twitter" class="footer-icons"/></a>
-            <a href="https://www.linkedin.com/in/sudarshan-karthik-thirukandiyur-45583a1ba/"><img src="./res/icon/linkedinc.png" alt="Linkdin" class="footer-icons"/></a>
+            <a href="https://www.instagram.com/sudarshan_karthiktk/"><img src="../res/icon/instagramc.png" alt="Instagram" class="footer-icons"/></a>
+            <a href="https://github.com/sudarshankarthik"><img src="../res/icon/githubc.png" alt="Github" class="footer-icons"/></a>
+            <a href="https://twitter.com/Sudarshan_Karth"><img src="../res/icon/twitterc.png" alt="Twitter" class="footer-icons"/></a>
+            <a href="https://www.linkedin.com/in/sudarshan-karthik-thirukandiyur-45583a1ba/"><img src="../res/icon/linkedinc.png" alt="Linkdin" class="footer-icons"/></a>
         </div>
         <div class="footer-text">
             <p>Devloped by Sudarshan Karthik, VIT</p><br>
