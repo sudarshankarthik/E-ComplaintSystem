@@ -21,6 +21,26 @@ img:hover {
     box-shadow: 10px 10px 39px -9px rgba(0,0,0,0.75);
 }
 
+.signin-input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 100;
+	width: 75%;
+	transition: .2s;
+    margin: 18px;
+    color: inherit;
+    font-size: 1.5rem;
+}
+
+.signin-input:hover, .signin-input:active, .signin-input:focus {
+    outline: none;
+	border: 2px solid #D1D1D4;
+    appearance: none;
+} 
+
 nav {
     padding: 8px;
     box-shadow: 0px 4px 12px 2px rgba(0,0,0,0.75);
@@ -128,10 +148,18 @@ a:hover:after{
 }
 
 .login{
-    background: linear-gradient(to right, rgba(255,255,255,100),
-    rgba(255,255,255,1)), url(./res/img/Login_Page_Image.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+.login .right {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.login h1 {
+    margin-bottom: 12px;
 }
 
 
@@ -152,7 +180,54 @@ a:hover:after{
 }
 
 .login-container {
+    background:    linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75) 80%, rgba(0, 0, 0, 0.95) 100%),
+    url('./res/img/Login_Page_Image.png') no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
 
+.login-container .right {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    color: white;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.right .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-submit {
+    background: #fff;
+	font-size: 1.4rem;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #07689f;
+	box-shadow: 0px 2px 2px #07689f;
+	cursor: pointer;
+	transition: .2s;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.login-submit:hover, .login-submit:active, .login-submit:focus {
+    border-color: #07689f;
+	outline: none;
 }
 
 .hero, .track-complaint {
