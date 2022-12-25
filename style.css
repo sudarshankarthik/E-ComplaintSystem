@@ -112,6 +112,10 @@ nav .links a:hover {
     background-color: #fd5e42
 }
 
+.welcome {
+    font-size: 1.2rem;
+}
+
 a:hover:after{
     width: 100%;
 }
@@ -228,6 +232,16 @@ a:hover:after{
 .login-submit:hover, .login-submit:active, .login-submit:focus {
     border-color: #07689f;
 	outline: none;
+}
+
+.error {
+    display: block;
+    color: white;
+    margin-left: 200px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 13px;
+    width: fit-content;
+    border-radius: 13px;
 }
 
 .hero, .track-complaint {

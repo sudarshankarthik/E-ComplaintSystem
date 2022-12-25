@@ -1,25 +1,39 @@
 <?php
     session_start();
+
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "myDB";
-
+    $dbname = "ecomplaintprotal";
+    $invalidUser = true;
+    $crctpsd = false;
+    $_SESSION['uname'] = null;
     // Create connection
-    $conn = mysqli_connect($servername, $username, $password);
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     // Check connection
     if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
-
-    echo "Connected successfully";
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
-            if (isset($_POST['Login'])) {
-                
-                
+            if(!isset($_SESSION['loggedin'])) {
+                if (isset($_POST['Login'])) {
+                    $sql = "select pssd from users where uname = '" . $_POST['uname']. "';";
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows > 0) {
+                        $invalidUser = false;
+                        if($_POST['pssd'] == $result->fetch_assoc()["pssd"])
+                            $crctpsd = true;
+                            $_SESSION['loggedin'] = true;
+                            $_SESSION['uname'] = $_POST['uname'];
+                        }
+                    }
+                }  else {
+                    $invalidUser = false;
+                    $crctpsd = true;
+                    $_SESSION['uname'] = $_POST['uname'];
             }
         } else {
         }
@@ -33,6 +47,75 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php
+        if($invalidUser)
+            echo "<div class=\"login\" id=\"login\">
+            <div class=\"close\">
+                <button onclick=\"showLogin()\"><img src=\"../res/icon/close.png\" alt=\"close\" width=\"20px\" height=\"20px\"></button>
+            </div>
+            <div class=\"login-container\">
+                <div class=\"right\">
+                    <div class=\"head\">
+                        <h1>Welcome Back</h1>
+                        <p>Login to E-Complaint Portal and become a change </p>
+                    </div>
+                    <div class=\"form\">
+                        <form action=\"../src/loggedin.php\" method=\"POST\">
+                            <div class=\"user input-container\">
+                                <img src=\"../res/icon/user.png\" alt=\"User\" srcset=\"\" width=\"40px\">
+                                <input type=\"text\" placeholder=\"User Name\" name=\"uname\" id=\"uname\" class=\"signin-input\" required=\"true\"/>
+                                </div>
+                            <lable class=\"error\">*  enter a valid username</lable>
+                            <div class=\"password input-container\">
+                                <img src=\"../res/icon/padlock.png\" alt=\"User\" srcset=\"\" width=\"40px\">
+                                <input type=\"password\" placeholder =\"Pasword\"  name=\"pssd\" id=\"pssd\" class=\"signin-input\" required=\"true\"/>
+                            </div>
+                            <div class=\"input-container\">
+                                <input type=\"submit\" value=\"Login\" id=\"Login\" class=\"login-submit\" name=\"Login\"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class=\"foot\">
+    
+                    </div>
+                </div>
+            </div>
+        </div>";
+        else if(!$crctpsd)
+            echo "<div class=\"login\" id=\"login\">
+            <div class=\"close\">
+                <button onclick=\"showLogin()\"><img src=\"../res/icon/close.png\" alt=\"close\" width=\"20px\" height=\"20px\"></button>
+            </div>
+            <div class=\"login-container\">
+                <div class=\"right\">
+                    <div class=\"head\">
+                        <h1>Welcome Back</h1>
+                        <p>Login to E-Complaint Portal and become a change </p>
+                    </div>
+                    <div class=\"form\">
+                        <form action=\"../src/loggedin.php\" method=\"POST\">
+                            <div class=\"user input-container\">
+                                <img src=\"../res/icon/user.png\" alt=\"User\" srcset=\"\" width=\"40px\">
+                                <input type=\"text\" placeholder=\"User Name\" name=\"uname\" id=\"uname\" class=\"signin-input\" required=\"true\"/>
+                                </div>
+                                <div class=\"password input-container\">
+                                <img src=\"../res/icon/padlock.png\" alt=\"User\" srcset=\"\" width=\"40px\">
+                                <input type=\"password\" placeholder =\"Pasword\"  name=\"pssd\" id=\"pssd\" class=\"signin-input\" required=\"true\"/>
+                                </div>
+                            <lable class=\"error\">*  incorrect password</lable>
+                            <div class=\"input-container\">
+                                <input type=\"submit\" value=\"Login\" id=\"Login\" class=\"login-submit\" name=\"Login\"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class=\"foot\">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+            ";
+    ?>
     <nav id="navbar">
         <div class="logo">
             <img src="../res/icon/E-Complaint.png" alt="E Complaint Portal" width="200">
@@ -42,7 +125,9 @@
             <a href="#">Complaint</a>
             <a href="#">Track</a>
             <a href="#">Contact</a>
-            <button class="nav-btn" onclick="showLogin()"><span>Login</span></button>
+            <lable class="welcome">
+                <?= "Welcome, " . $_SESSION['uname'] ?>
+            </lable>
         </div>
     </nav>
 
