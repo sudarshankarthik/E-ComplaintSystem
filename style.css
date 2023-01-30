@@ -4,8 +4,8 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
+    zoom: 0.95;
 }
-
 body {
     position: relative;
 }
