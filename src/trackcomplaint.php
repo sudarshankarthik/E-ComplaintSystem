@@ -21,7 +21,7 @@
         </p>
         <h2>Your complaint id</h2>
         <label class="complaintLable">
-            <span>#</span>
+            <span id="complaintSpan">#</span>
             <input type="text" name="complaintInput" id="complaintId">
         </label>
     </header>

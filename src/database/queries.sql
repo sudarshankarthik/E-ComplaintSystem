@@ -26,4 +26,19 @@ VALUES (
         'Raman',
         '29',
         '1993-05-02'
-    );
+    );    
+
+CREATE TABLE `ecomplaintprotal`.`complaint` (
+    `cid` VARCHAR(25) NOT NULL , 
+    `uid` VARCHAR(25) NOT NULL , 
+    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+    `title` VARCHAR(50) NOT NULL , 
+    `status` BOOLEAN NOT NULL DEFAULT TRUE , 
+    PRIMARY KEY (`cid`)
+) ENGINE = InnoDB;
+
+ALTER TABLE `complaint` ADD INDEX(`uid`);
+
+ALTER TABLE `complaint` ADD CONSTRAINT `uid_complaint` FOREIGN KEY (`uid`) REFERENCES `users`(`uname`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+INSERT INTO `complaint` (`cid`, `uid`, `date`, `title`, `status`) VALUES ('CNT1002321000', 'suddu', current_timestamp(), 'unable to receive money', '1');

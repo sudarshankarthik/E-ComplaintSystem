@@ -6,8 +6,11 @@
 }
 
 header {
-    margin: 80px;
-
+    padding: 80px;
+    width: 100%;
+    height:500px;
+    background-image: url(../../res/img/complaintTrackBackground.jpg);
+    background-position: top;
 }
 
 header h1 {
@@ -21,8 +24,15 @@ header p {
 header h2 {
     margin: 12px;
     display: inline-block;
+    color: orangered;
 }
 
 header input {
     border: none;
+}
+
+header #complaintSpan {
+    color: skyblue;
+    font-weight: bolder;
+    font-size: larger;
 }
