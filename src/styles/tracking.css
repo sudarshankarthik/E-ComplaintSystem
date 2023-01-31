@@ -7,10 +7,13 @@
 
 header {
     padding: 80px;
-    width: 100%;
+    width: 100vw;
     height:500px;
-    background-image: url(../../res/img/complaintTrackBackground.jpg);
-    background-position: top;
+    background:    linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75) 80%, rgba(0, 0, 0, 0.95) 100%),
+    url('../../res/img/complaintTrackBackground.jpg') no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vw;
 }
 
 header h1 {
@@ -35,4 +38,8 @@ header #complaintSpan {
     color: skyblue;
     font-weight: bolder;
     font-size: larger;
+}
+
+.dtls {
+    height: 500vh;
 }
